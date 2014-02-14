@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC3")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'springboot-rest-groovy-quckstart'
+    version =  '1.0.0-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+
+    compile 'org.codehaus.groovy:groovy-all:2.0.8'
+
+    compile("org.springframework.boot:spring-boot-starter-web:1.0.0.RC3")
+    compile("com.fasterxml.jackson.core:jackson-databind:2.3.1")
+
+    testCompile("junit:junit:4.11")
+    testCompile ('org.spockframework:spock-core:0.7-groovy-2.0') {
+        exclude module: 'groovy-all'
+    }
+    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+
+    testCompile 'org.springframework.boot:spring-boot-starter-test:1.0.0.RC3'
+    testCompile 'com.jayway.jsonpath:json-path-assert:0.8.1'
+
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.10'
+}

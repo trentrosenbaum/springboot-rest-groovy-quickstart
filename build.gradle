@@ -1,10 +1,10 @@
 buildscript {
     repositories {
-        maven { url "http://repo.spring.io/libs-snapshot" }
-        mavenLocal()
+        mavenLocal ()
+        maven { url 'http://repo.spring.io/libs-release' }
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC3")
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.0.1.RELEASE')
     }
 }
 
@@ -19,28 +19,28 @@ jar {
 }
 
 repositories {
-    mavenCentral()
-    maven { url "http://repo.spring.io/libs-snapshot" }
+    mavenCentral ()
+    maven { url 'http://repo.spring.io/libs-release' }
 }
 
 dependencies {
 
-    compile 'org.codehaus.groovy:groovy-all:2.0.8'
+    compile ('org.codehaus.groovy:groovy-all:2.0.8')
 
-    compile("org.springframework.boot:spring-boot-starter-web:1.0.0.RC3")
-    compile("com.fasterxml.jackson.core:jackson-databind:2.3.1")
+    compile ('org.springframework.boot:spring-boot-starter-web:1.0.1.RELEASE')
+    compile ('com.fasterxml.jackson.core:jackson-databind:2.3.1')
 
-    testCompile("junit:junit:4.11")
+    testCompile ('junit:junit:4.11')
     testCompile ('org.spockframework:spock-core:0.7-groovy-2.0') {
         exclude module: 'groovy-all'
     }
-    testCompile 'org.spockframework:spock-spring:0.7-groovy-2.0'
+    testCompile ('org.spockframework:spock-spring:0.7-groovy-2.0')
 
-    testCompile 'org.springframework.boot:spring-boot-starter-test:1.0.0.RC3'
-    testCompile 'com.jayway.jsonpath:json-path-assert:0.8.1'
+    testCompile ('org.springframework.boot:spring-boot-starter-test:1.0.1.RELEASE')
+    testCompile ('com.jayway.jsonpath:json-path-assert:0.8.1')
 
 }
 
-task wrapper(type: Wrapper) {
+task wrapper (type: Wrapper) {
     gradleVersion = '1.10'
 }
